@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My Page</title>
+		<meta name="viewport" content="initial-scale=1.0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="jquery.mobile-1.3.1.css" />
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+	</head>
+	<body>
+
+		<div data-role="page" id="homepage">
+
+			<div data-role="header" data-position="fixed">
+				<a href="#" data-role="button" >Back</a>
+				<h1>POSSIBILITY</h1>
+			</div><!-- /header -->
+
+			<div data-role="content">
+				<div style="padding: 5px;background-color: #202020 ;font-family: serif; text-align: center;margin-top: -20px;margin-right: -20px; margin-left: -20px;">
+					<h2 style="color: lime;"> ICGC POSSIBILITY
+					<br />
+					WORSHIP TEMPLE</h2>
+					<h4 style="color:orange">Where Christ makes everybody a possibility</h4>
+				</div>
+				<div>
+					<img src="images/homepic.jpg" alt="homepic"  />
+				</div>
+				<ul data-role="listview" data-inset="true">
+					<li data-role="list-divider">
+						Welcome
+					</li>
+					<li>
+						<a href="#thisweek"  data-transition='flip'>This weeks Message</a>
+					</li>
+					<li>
+						<a href="#">Previous Messages</a>
+					</li>
+					<li>
+						<a href="#">Announcements</a>
+					</li>
+				</ul>
+
+			</div><!-- /content -->
+
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li>
+							<a href="#" data-icon="gear" class="ui-btn-active ui-state-persist">Gallery</a>
+						</li>
+						<li>
+							<a href="#" data-icon="gear">Contact</a>
+						</li>
+						<!-- <li>
+						<a href="#" data-icon="check">Button 3</a>
+						</li> -->
+					</ul>
+				</div>
+			</div>
+
+		</div><!-- /page -->
+
+		<div data-role="page" id="thisweek">
+
+			<div data-role="header" data-position="fixed">
+				<a href="#homepage" data-transition='flip' data-role="button">Back</a>
+				<h1>This Week</h1>
+			</div><!-- /header -->
+
+			<div data-role="content">
+				<div id="passage" style="min-height:100%;  padding: 5px;background-color: #EDFFFF ;font-family: serif; text-align: center; ">
+
+				</div>
+				<ul data-role="listview" data-inset="true">
+					<li data-role="list-divider">
+						Welcome
+					</li>
+					<li>
+						<a href="#">This weeks Message</a>
+					</li>
+					<li>
+						<a href="#">Previous Messages</a>
+					</li>
+					<li>
+						<a href="#">Announcements</a>
+					</li>
+				</ul>
+
+			</div><!-- /content -->
+
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li>
+							<a href="#" data-icon="gear" class="ui-btn-active ui-state-persist">Gallery</a>
+						</li>
+						<li>
+							<a href="#" data-icon="gear">Contact</a>
+						</li>
+						<!-- <li>
+						<a href="#" data-icon="check">Button 3</a>
+						</li> -->
+					</ul>
+				</div>
+			</div>
+
+		</div><!-- /page2 -->
+		<script>
+			$.get('http://sms.nalosolutions.com/nalosms/thisweek.php', function(data, status) {
+				if (status == 'success') {
+					$("#passage").html(data);
+				} else {
+					$("#passage").html("Check your internet connectivity");
+				};
+
+			});
+
+		</script>
+		>
+	</body>
+</html>
