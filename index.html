@@ -9,67 +9,11 @@
 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
 	</head>
-	<script>
-				.modalDialog {
-		position: fixed;
-		font-family: Arial, Helvetica, sans-serif;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		background: rgba(0,0,0,0.8);
-		z-index: 99999;
-		opacity:0;
-		-webkit-transition: opacity 400ms ease-in;
-		-moz-transition: opacity 400ms ease-in;
-		transition: opacity 400ms ease-in;
-		pointer-events: none;
-		}
-
-		.modalDialog:target {
-		opacity:1;
-		pointer-events: auto;
-		}
-
-		.modalDialog > div {
-		width: 400px;
-		position: relative;
-		margin: 10% auto;
-		padding: 5px 20px 13px 20px;
-		border-radius: 10px;
-		background: #fff;
-		background: -moz-linear-gradient(#fff, #999);
-		background: -webkit-linear-gradient(#fff, #999);
-		background: -o-linear-gradient(#fff, #999);
-		}
-
-		.close {
-		background: #606061;
-		color: #FFFFFF;
-		line-height: 25px;
-		position: absolute;
-		right: -12px;
-		text-align: center;
-		top: -10px;
-		width: 24px;
-		text-decoration: none;
-		font-weight: bold;
-		-webkit-border-radius: 12px;
-		-moz-border-radius: 12px;
-		border-radius: 12px;
-		-moz-box-shadow: 1px 1px 3px #000;
-		-webkit-box-shadow: 1px 1px 3px #000;
-		box-shadow: 1px 1px 3px #000;
-		}
-
-		.close:hover { background: #00d9ff; }
-	</script>
 	<body>
 
 		<div data-role="page" id="homepage">
 
 			<div data-role="header" data-position="fixed">
-				<a href="#" data-role="button" >Back</a>
 				<h1>POSSIBILITY</h1>
 			</div><!-- /header -->
 
@@ -94,7 +38,7 @@
 						<a href="#previousmsg"  data-transition='flip'>Previous Messages</a>
 					</li>
 					<li>
-						<a href="#">Announcements</a>
+						<a href="#announcement">Announcements</a>
 					</li>
 				</ul>
 
@@ -127,13 +71,14 @@
 
 			<div data-role="content">
 				<div id="passage" style="min-height:100%;  padding: 5px;background-color: #EDFFFF ;font-family: serif; text-align: justify; "></div>
+
 				<div style="background: #F8F8F8; padding: 10px; text-align: center;" data-role="popup" id="viewsdiv" class="modalDialog">
-					<a href="#close" title="Close" class="close" style="position: fixed; right: 10px; padding: 3px; background: silver;">X</a>
+					<!-- <a href="#close" title="Close" class="close" style="position: fixed; right: 10px; padding: 3px; background: silver;">X</a> -->
 					<form>
 						<label>Your view</label>
-						<textarea id="view" cols="30" rows="50"></textarea>
-						<label>How inspiring was this</label>
-						<input id="inspire" type="range" value="50" min="0" max="100" step="1" data-highlight='false'/>
+						<div id="othfrm">
+							
+						</div>
 						<input id="amen" type="button" value="AMEN" />
 					</form>
 				</div>
@@ -156,59 +101,32 @@
 		<div data-role="page" id="previousmsg">
 
 			<div data-role="header" data-position="fixed">
-				<a href="#" data-role="button" >Back</a>
-				<h1>POSSIBILITY</h1>
+				<a href="#homepage" data-role="button" data-transition="slide">Back</a>
+				<h1>ARCHIVE</h1>
 			</div><!-- /header -->
 
 			<div data-role="content" id="old">
 
 			</div><!-- /content -->
 
-			<div data-role="footer" data-position="fixed">
-				<div data-role="navbar">
-					<ul>
-						<li>
-							<a href="#" data-icon="camera" class="ui-btn-active ui-state-persist">Gallery</a>
-						</li>
-						<li>
-							<a href="#" data-icon="gear">Contact</a>
-						</li>
-						<!-- <li>
-						<a href="#" data-icon="check">Button 3</a>
-						</li> -->
-					</ul>
-				</div>
-			</div>
+			<div data-role="footer" data-position="fixed"></div>
 
 		</div><!-- /page3 -->
-		<div data-role="page" id="archive">
+		<div data-role="page" id="announcement">
 
 			<div data-role="header" data-position="fixed">
-				<a href="#" data-role="button" >Back</a>
-				<h1>POSSIBILITY</h1>
+				<a href="#homepage" data-role="button" data-transition="slide">Back</a>
+				<h1>NOTICE</h1>
 			</div><!-- /header -->
 
-			<div data-role="content" id="oldmsg">
+			<div data-role="content" id="announce">
 
 			</div><!-- /content -->
 
-			<div data-role="footer" data-position="fixed">
-				<div data-role="navbar">
-					<ul>
-						<li>
-							<a href="#" data-icon="camera" class="ui-btn-active ui-state-persist">Gallery</a>
-						</li>
-						<li>
-							<a href="#" data-icon="gear">Contact</a>
-						</li>
-						<!-- <li>
-						<a href="#" data-icon="check">Button 3</a>
-						</li> -->
-					</ul>
-				</div>
-			</div>
+			<div data-role="footer" data-position="fixed"></div>
 
-		</div><!-- /page3.2 -->
+		</div><!-- /page4 -->
+
 		<script>
 			$.get('http://sms.nalosolutions.com/nalosms/thisweek.php', function(data, status) {
 				if (status == 'success') {
@@ -254,26 +172,22 @@
 			});
 		</script>
 		<script>
-			$("#arch").click(function() {
-				alert('yes');
-				// var views = $("#view").val();
-				// var $inspire = $("#inspire").val();
-				// if (views == '') {
-				// alert("Kindly share your views on thw passage");
-				// return false;
-				// };
-				// $.post('http://sms.nalosolutions.com/nalosms/views.php', {
-				// view : $("#view").val(),
-				// inspiration : $("#inspire").val()
-				// }, function(data, status) {
-				// if (status == 'success') {
-				// alert(data);
-				// $("#viewsdiv").hide();
-				// } else {
-				// alert("Check your internet connectivity");
-				// };
-				//
-				// });
+			$.get('http://sms.nalosolutions.com/nalosms/announce.php', function(data, status) {
+				if (status == 'success') {
+					$("#announce").html(data);
+				} else {
+					alert("Check your internet connectivity");
+				};
+
+			});
+		</script>
+		<script>
+			$.get('http://sms.nalosolutions.com/nalosms/yourview.php', function(data, status) {
+				if (status == 'success') {
+					$("#othfrm").html(data);
+				} else {
+					alert("Check your internet connectivity");
+				};
 
 			});
 		</script>
