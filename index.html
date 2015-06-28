@@ -22,9 +22,7 @@
 				<div style="padding: 2px;background-color: #202020 ;font-family: serif; text-align: center;margin-top: -20px;margin-right: -20px; margin-left: -20px;">
 					<h2 style="color: lime;"> Voice Of Possibilty <h4 style="color:orange">Where Christ makes everybody a possibility</h4>
 				</div>
-				<div style="margin-top: 5px;">
-					<img src="images/homepic.jpg" alt="homepic" width="100%" />
-				</div>
+				<div style="margin-top: 5px;" id="imgpaste"></div>
 				<ul data-role="listview" data-inset="true">
 					<li data-role="list-divider">
 						Welcome
@@ -65,7 +63,7 @@
 				<div data-role="navbar">
 					<ul>
 						<li>
-							<a href="#" data-icon="camera" class="ui-btn-active ui-state-persist">Gallery</a>
+							<a href="#gallery" data-icon="camera" class="ui-btn-active ui-state-persist">Gallery</a>
 						</li>
 						<li>
 							<a href="#ttu" data-icon="edit"  data-rel='popup' data-transition='slideup' data-icon="edit" id="" class="modalDialog">Talk To Us</a>
@@ -78,7 +76,20 @@
 			</div>
 
 		</div><!-- /page -->
+		<div data-role="page" id="gallery">
 
+			<div data-role="header" data-position="fixed">
+				<a href="#homepage" data-role="button" data-transition="slide">Back</a>
+				<h1>GALLERY</h1>
+			</div><!-- /header -->
+
+			<div data-role="content" id="gal">
+
+			</div><!-- /content -->
+
+			<div data-role="footer" data-position="fixed"></div>
+
+		</div><!-- /page1.3 -->
 		<div data-role="page" id="questions">
 
 			<div data-role="header" data-position="fixed">
@@ -230,7 +241,26 @@
 			<div data-role="footer" data-position="fixed"></div>
 
 		</div><!-- /page6 -->
+		<script>
+			$.get('http://sms.nalosolutions.com/nalosms/gallery.php', function(data, status) {
+				if (status == 'success') {
+					$("#gal").html(data);
+				} else {
+					alert("Check your internet connectivity");
+				};
 
+			});
+		</script>
+		<script>
+			$.get('http://sms.nalosolutions.com/nalosms/img.php', function(data, status) {
+				if (status == 'success') {
+					$("#imgpaste").html(data);
+				} else {
+					alert("Check your internet connectivity");
+				};
+
+			});
+		</script>
 		<script>
 			$("#btntellus").click(function() {
 				var views = $("#tellus").val() + "                                                                                                                                 ";
