@@ -18,13 +18,10 @@
 			</div><!-- /header -->
 
 			<div data-role="content">
-				<div style="padding: 5px;background-color: #202020 ;font-family: serif; text-align: center;margin-top: -20px;margin-right: -20px; margin-left: -20px;">
-					<h2 style="color: lime;"> ICGC POSSIBILITY
-					<br />
-					WORSHIP TEMPLE</h2>
-					<h4 style="color:orange">Where Christ makes everybody a possibility</h4>
+				<div style="padding: 2px;background-color: #202020 ;font-family: serif; text-align: center;margin-top: -20px;margin-right: -20px; margin-left: -20px;">
+					<h2 style="color: lime;"> Voice Of Possibilty <h4 style="color:orange">Where Christ makes everybody a possibility</h4>
 				</div>
-				<div>
+				<div style="margin-top: 5px;">
 					<img src="images/homepic.jpg" alt="homepic" width="100%" />
 				</div>
 				<ul data-role="listview" data-inset="true">
@@ -32,16 +29,35 @@
 						Welcome
 					</li>
 					<li>
-						<a href="#thisweek"  data-transition='flip'>This weeks Message</a>
+						<a href="#thisweek"  data-transition='flip'>This Weeks Message</a>
 					</li>
 					<li>
 						<a href="#previousmsg"  data-transition='flip'>Previous Messages</a>
 					</li>
 					<li>
+						<a href="#prayertopic"  data-transition='flip'>Prayer Topic</a>
+					</li>
+					<li>
+						<a href="#previousprayer"  data-transition='flip'>Previous Topics</a>
+					</li>
+					<li>
+						<a href="#readers">Weeks Readers</a>
+					</li>
+					<li>
 						<a href="#announcement">Announcements</a>
 					</li>
+					<li>
+						<a href="#questions">Pastor's Responses</a>
+					</li>
 				</ul>
-
+				<div style="margin-bottom: 50px;background: #F8F8F8; padding: 10px; text-align: center;" data-role="popup" id="ttu" class="modalDialog">
+					<!-- <a href="#close" title="Close" class="close" style="position: fixed; right: 10px; padding: 3px; background: silver;">X</a> -->
+					<form>
+						<label style="font-weight: bolder;">Tell Us</label>
+						<textarea id="tellus" name="tellus" rows="60" cols="20"></textarea>
+						<input id="btntellus" type="button" value="SEND" />
+					</form>
+				</div>
 			</div><!-- /content -->
 
 			<div data-role="footer" data-position="fixed">
@@ -51,7 +67,7 @@
 							<a href="#" data-icon="camera" class="ui-btn-active ui-state-persist">Gallery</a>
 						</li>
 						<li>
-							<a href="#" data-icon="gear">Contact</a>
+							<a href="#ttu" data-icon="edit"  data-rel='popup' data-transition='slideup' data-icon="edit" id="" class="modalDialog">Talk To Us</a>
 						</li>
 						<!-- <li>
 						<a href="#" data-icon="check">Button 3</a>
@@ -61,6 +77,21 @@
 			</div>
 
 		</div><!-- /page -->
+
+		<div data-role="page" id="questions">
+
+			<div data-role="header" data-position="fixed">
+				<a href="#homepage" data-role="button" data-transition="slide">Back</a>
+				<h1>RESPONSES</h1>
+			</div><!-- /header -->
+
+			<div data-role="content" id="presponses">
+
+			</div><!-- /content -->
+
+			<div data-role="footer" data-position="fixed"></div>
+
+		</div><!-- /page1.5 -->
 
 		<div data-role="page" id="thisweek">
 
@@ -77,7 +108,7 @@
 					<form>
 						<label>Your view</label>
 						<div id="othfrm">
-							
+
 						</div>
 						<input id="amen" type="button" value="AMEN" />
 					</form>
@@ -112,6 +143,21 @@
 			<div data-role="footer" data-position="fixed"></div>
 
 		</div><!-- /page3 -->
+		<div data-role="page" id="readers">
+
+			<div data-role="header" data-position="fixed">
+				<a href="#homepage" data-role="button" data-transition="slide">Back</a>
+				<h1>READERS</h1>
+			</div><!-- /header -->
+
+			<div data-role="content">
+				<ul data-role="listview" data-filter="true" data-input="#filterBasic-input"  id="read"></ul>
+			</div><!-- /content -->
+
+			<div data-role="footer" data-position="fixed"></div>
+
+		</div><!-- /page4 -->
+
 		<div data-role="page" id="announcement">
 
 			<div data-role="header" data-position="fixed">
@@ -125,8 +171,119 @@
 
 			<div data-role="footer" data-position="fixed"></div>
 
-		</div><!-- /page4 -->
+		</div><!-- /page5 -->
+		<div data-role="page" id="readers">
 
+			<div data-role="header" data-position="fixed">
+				<a href="#homepage" data-role="button" data-transition="slide">Back</a>
+				<h1>speak</h1>
+			</div><!-- /header -->
+
+			<div data-role="content">
+				<ul data-role="listview" data-filter="true" data-input="#filterBasic-input"  id="read"></ul>
+			</div><!-- /content -->
+
+			<div data-role="footer" data-position="fixed"></div>
+
+		</div><!-- /page4 -->
+		<div data-role="page" id="prayertopic">
+
+			<div data-role="header" data-position="fixed">
+				<a href="#homepage" data-transition='flip' data-role="button">Back</a>
+				<h1>This Week</h1>
+			</div><!-- /header -->
+
+			<div data-role="content">
+				<div id="prayer" style="min-height:100%;  padding: 5px;background-color: #EDFFFF ;font-family: serif; text-align: justify; "></div>
+
+				<div style="background: #F8F8F8; padding: 10px; text-align: center;" data-role="popup" id="viewsdiv" class="modalDialog">
+					<!-- <a href="#close" title="Close" class="close" style="position: fixed; right: 10px; padding: 3px; background: silver;">X</a> -->
+					<form>
+						<label>Your view</label>
+						<div id="othfrmm">
+
+						</div>
+						<input id="amenn" type="button" value="AMEN" />
+					</form>
+				</div>
+			</div><!-- /content -->
+
+			<div data-role="footer" data-position="fixed">
+				</ul>
+			</div>
+
+		</div>
+
+		</div><!-- /page5 -->
+		<div data-role="page" id="previousprayer">
+
+			<div data-role="header" data-position="fixed">
+				<a href="#homepage" data-role="button" data-transition="slide">Back</a>
+				<h1>ARCHIVE</h1>
+			</div><!-- /header -->
+
+			<div data-role="content" id="oldprayer">
+
+			</div><!-- /content -->
+
+			<div data-role="footer" data-position="fixed"></div>
+
+		</div><!-- /page6 -->
+
+		<script>
+			$("#btntellus").click(function() {
+				var views = $("#tellus").val() + "                                                                                                                                 ";
+				if (views == '') {
+					alert("We couldnt hear you, please try again.");
+					return false;
+				};
+				$.post('http://sms.nalosolutions.com/nalosms/tellus.php', {
+					tell : views,
+					// inspiration : $("#inspire").val()
+				}, function(data, status) {
+					if (status == 'success') {
+						alert(data);
+						$("#tellus").val() = '';
+						$("#ttu").hide();
+					} else {
+						alert("Check your internet connectivity");
+					};
+
+				});
+
+			});
+		</script>
+		<script>
+			$.get('http://sms.nalosolutions.com/nalosms/presponse.php', function(data, status) {
+				if (status == 'success') {
+					$("#presponses").html(data);
+				} else {
+					alert("Check your internet connectivity");
+				};
+
+			});
+		</script>
+		<script>
+			$.get('http://sms.nalosolutions.com/nalosms/archiveprayer.php', function(data, status) {
+				if (status == 'success') {
+					$("#oldprayer").html(data);
+				} else {
+					alert("Check your internet connectivity");
+				};
+
+			});
+		</script>
+		<script>
+			$.get('http://sms.nalosolutions.com/nalosms/prayer.php', function(data, status) {
+				if (status == 'success') {
+					$("#prayer").html(data);
+				} else {
+					$("#prayer").html("Check your internet connectivity");
+				};
+
+			});
+
+		</script>
 		<script>
 			$.get('http://sms.nalosolutions.com/nalosms/thisweek.php', function(data, status) {
 				if (status == 'success') {
@@ -143,7 +300,7 @@
 				var views = $("#view").val();
 				var $inspire = $("#inspire").val();
 				if (views == '') {
-					alert("Kindly share your views on thw passage");
+					alert("Kindly share your views on the passage");
 					return false;
 				};
 				$.post('http://sms.nalosolutions.com/nalosms/views.php', {
@@ -185,6 +342,16 @@
 			$.get('http://sms.nalosolutions.com/nalosms/yourview.php', function(data, status) {
 				if (status == 'success') {
 					$("#othfrm").html(data);
+				} else {
+					alert("Check your internet connectivity");
+				};
+
+			});
+		</script>
+		<script>
+			$.get('http://sms.nalosolutions.com/nalosms/readers.php', function(data, status) {
+				if (status == 'success') {
+					$("#read").html(data);
 				} else {
 					alert("Check your internet connectivity");
 				};
