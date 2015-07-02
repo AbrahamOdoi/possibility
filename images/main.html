@@ -223,7 +223,14 @@
 				<div id="prayer" style="min-height:100%;  padding: 5px;background-color: #EDFFFF ;font-family: serif; text-align: justify; "></div>
 
 				<div style="background: #F8F8F8; padding: 10px; text-align: center;" data-role="popup" id="viewsdiv" class="modalDialog">
-					
+					<!-- <a href="#close" title="Close" class="close" style="position: fixed; right: 10px; padding: 3px; background: silver;">X</a> -->
+					<form>
+						<label>Your view</label>
+						<div id="othfrmm">
+
+						</div>
+						<input id="amenn" type="button" value="AMEN" />
+					</form>
 				</div>
 			</div><!-- /content -->
 
@@ -354,6 +361,7 @@
 		</script>
 		<script>
 			$("#amen").click(function() {
+				alert(done);
 				var views = $("#view").val();
 				var name = localStorage.getItem("yourname", name);
 				var num = localStorage.getItem("yournum", num);
@@ -364,7 +372,6 @@
 					alert("Kindly share your views on the passage");
 					return false;
 				};
-				
 				$.post('http://sms.nalosolutions.com/nalosms/views.php', {
 					view : $("#view").val(),
 					name : name,
@@ -374,7 +381,7 @@
 				}, function(data, status) {
 					if (status == 'success') {
 						alert(data);
-						$("#viewsdiv").slideDown();
+						$("#viewsdiv").hide();
 					} else {
 						alert("Check your internet connectivity");
 					};
