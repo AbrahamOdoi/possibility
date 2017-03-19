@@ -12,14 +12,14 @@
 	</head>
 	<body>
 
-		<div data-role="page" id="homepage">
+		<div data-role="page" id="homepage" style="background: white;">
 
-			<div data-role="header" data-position="fixed">
-				<h1>POSSIBILITY</h1>
+			<div data-role="header" data-position="fixed" style=" border-color: #956723;">
+				<h1>PLM</h1>
 			</div><!-- /header -->
 
 			<div data-role="content">
-				<div id="regis" style=" display:none; position: fixed; top: 50px; text-align: center; width: 80%; padding: 10px; z-index: 9999;
+				<!-- <div id="regis" style=" display:none; position: fixed; top: 50px; text-align: center; width: 80%; padding: 10px; z-index: 9999;
 				/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ebf1f6+0,abd3ee+50,89c3eb+51,d5ebfb+100;Blue+Gloss+%234 */
 				background: #ebf1f6; /* Old browsers */
 				background: -moz-linear-gradient(top,  #ebf1f6 0%, #abd3ee 50%, #89c3eb 51%, #d5ebfb 100%); /* FF3.6+ */
@@ -30,8 +30,8 @@
 				background: linear-gradient(to bottom,  #ebf1f6 0%,#abd3ee 50%,#89c3eb 51%,#d5ebfb 100%); /* W3C */
 				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebf1f6', endColorstr='#d5ebfb',GradientType=0 ); /* IE6-9 */
 
-				">
-					<form>
+				"> -->
+					<!-- <form>
 						<label style="font-weight: bolder;">Introduce Yourself</label>
 						<br />
 						<label for="urname">Fullname</label>
@@ -41,15 +41,15 @@
 						<label for="ururloc">Location</label>
 						<input id="urloc" type="text" name="urloc"  />
 						<input id="savedet" type="button" value="SEND" />
-					</form>
+					</form> -->
 
-				</div>
-				<div style="padding: 2px;background-color: #202020 ;font-family: serif; text-align: center;margin-top: -20px;margin-right: -20px; margin-left: -20px;">
+				<!-- </div> -->
+				<!-- <div style="padding: 2px;background-color: #202020 ;font-family: serif; text-align: center;margin-top: -20px;margin-right: -20px; margin-left: -20px;">
 					<h2 style="color: lime;"> Voice Of Possibilty <h4 style="color:orange">Where Christ makes everybody a possibility</h4>
-				</div>
+				</div> -->
 				<div style="margin-top: 5px;" id="imgpaste"></div>
 				<ul data-role="listview" data-inset="true">
-					<li data-role="list-divider">
+					<li data-role="list-divider" style="background: #c5aa23; border-color: #956723;">
 						Welcome
 					</li>
 					<li>
@@ -268,7 +268,7 @@
 			};
 		</script>
 		<script>
-			$.get('http://sms.nalosolutions.com/nalosms/gallery.php', function(data, status) {
+			$.get('http://deywuro.com/sms/gallery.php', function(data, status) {
 				if (status == 'success') {
 					$("#gal").html(data);
 				} else {
@@ -278,7 +278,7 @@
 			});
 		</script>
 		<script>
-			$.get('http://sms.nalosolutions.com/nalosms/img.php', function(data, status) {
+			$.get('img.php', function(data, status) {
 				if (status == 'success') {
 					$("#imgpaste").html(data);
 				} else {
@@ -294,7 +294,7 @@
 					alert("We couldnt hear you, please try again.");
 					return false;
 				};
-				$.post('http://sms.nalosolutions.com/nalosms/tellus.php', {
+				$.post('http://deywuro.com/sms/tellus.php', {
 					tell : views,
 					// inspiration : $("#inspire").val()
 				}, function(data, status) {
@@ -311,7 +311,7 @@
 			});
 		</script>
 		<script>
-			$.get('http://sms.nalosolutions.com/nalosms/presponse.php', function(data, status) {
+			$.get('http://deywuro.com/sms/presponse.php', function(data, status) {
 				if (status == 'success') {
 					$("#presponses").html(data);
 				} else {
@@ -321,7 +321,7 @@
 			});
 		</script>
 		<script>
-			$.get('http://sms.nalosolutions.com/nalosms/archiveprayer.php', function(data, status) {
+			$.get('http://deywuro.com/sms/archiveprayer.php', function(data, status) {
 				if (status == 'success') {
 					$("#oldprayer").html(data);
 				} else {
@@ -331,7 +331,7 @@
 			});
 		</script>
 		<script>
-			$.get('http://sms.nalosolutions.com/nalosms/prayer.php', function(data, status) {
+			$.get('http://deywuro.com/sms/prayer.php', function(data, status) {
 				if (status == 'success') {
 					$("#prayer").html(data);
 				} else {
@@ -342,7 +342,7 @@
 
 		</script>
 		<script>
-			$.get('http://sms.nalosolutions.com/nalosms/thisweek.php', function(data, status) {
+			$.get('http://deywuro.com/sms/thisweek.php', function(data, status) {
 				if (status == 'success') {
 					$("#passage").html(data);
 				} else {
@@ -365,7 +365,7 @@
 					return false;
 				};
 				
-				$.post('http://sms.nalosolutions.com/nalosms/views.php', {
+				$.post('http://deywuro.com/sms/views.php', {
 					view : $("#view").val(),
 					name : name,
 					num : num,
@@ -384,7 +384,7 @@
 			});
 		</script>
 		<script>
-			$.get('http://sms.nalosolutions.com/nalosms/archive.php', function(data, status) {
+			$.get('http://deywuro.com/sms/archive.php', function(data, status) {
 				if (status == 'success') {
 					$("#old").html(data);
 				} else {
@@ -394,7 +394,7 @@
 			});
 		</script>
 		<script>
-			$.get('http://sms.nalosolutions.com/nalosms/announce.php', function(data, status) {
+			$.get('http://deywuro.com/sms/announce.php', function(data, status) {
 				if (status == 'success') {
 					$("#announce").html(data);
 				} else {
@@ -404,7 +404,7 @@
 			});
 		</script>
 		<script>
-			$.get('http://sms.nalosolutions.com/nalosms/yourview.php', function(data, status) {
+			$.get('http://deywuro.com/sms/yourview.php', function(data, status) {
 				if (status == 'success') {
 					$("#othfrm").html(data);
 				} else {
@@ -414,7 +414,7 @@
 			});
 		</script>
 		<script>
-			$.get('http://sms.nalosolutions.com/nalosms/readers.php', function(data, status) {
+			$.get('http://deywuro.com/sms/readers.php', function(data, status) {
 				if (status == 'success') {
 					$("#read").html(data);
 				} else {
